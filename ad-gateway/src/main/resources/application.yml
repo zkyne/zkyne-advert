@@ -1,1 +1,24 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: ad-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server1:8001/eureka/
 
+zuul:
+  prefix: /zkyne
+  routes:
+    sponsor:
+      path: /ad-sponsor/**
+      serviceId: ad-sponsor
+      #    strip-prefix来决定是否需要前缀，true是不加前缀（默认），false就会添加到路径上
+      #    zuul默认给我们如下的跳转规则：http://IP:port/ribbon/***  ====》http://IP:port/***
+      #    false 时: http://IP:port/ribbon/***  ====> http://IP:port/ribbon/***
+      strip-prefix: false
+    search:
+      path: /ad-search/**
+      serviceId: ad-search
+      strip-prefix: false
