@@ -1,4 +1,4 @@
-package com.zkyne.advert.entity;
+package com.zkyne.advert.dump.table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,9 +19,10 @@ public class AdvertPlan {
 
     private Long planId;
     private Long userId;
+    private String planName;
     private Integer planStatus;
-    private Date beginTime;
-    private Date endTime;
+    private Date startDate;
+    private Date endDate;
 
     private Date createTime;
     private Date modifyTime;

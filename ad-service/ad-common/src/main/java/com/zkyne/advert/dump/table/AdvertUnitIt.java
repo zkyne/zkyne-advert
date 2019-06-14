@@ -1,4 +1,4 @@
-package com.zkyne.advert.entity;
+package com.zkyne.advert.dump.table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,20 +7,18 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * @ClassName: AdvertUnit
+ * @ClassName: AdvertUnitIt
  * @Description:
  * @Author: zkyne
- * @Date: 2019/6/14 11:21
+ * @Date: 2019/6/14 11:18
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvertUnit {
-
+public class AdvertUnitIt {
+    private Long id;
     private Long unitId;
-    private Integer unitStatus;
-    private Integer positionType;
-    private Long planId;
+    private String itTag;
 
     private Date createTime;
     private Date modifyTime;

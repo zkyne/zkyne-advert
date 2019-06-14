@@ -1,4 +1,4 @@
-package com.zkyne.advert.entity;
+package com.zkyne.advert.dump.table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,7 +24,8 @@ public class AdvertCreative {
     private Integer height;
     private Integer width;
     private Integer auditStatus;
-    private String adUrl;
+    private Long userId;
+    private String advertUrl;
 
     private Date createTime;
     private Date modifyTime;
