@@ -4,22 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 /**
- * @ClassName: AdvertUnitIt
+ * @ClassName: AdvertUnitDistrictTable
  * @Description:
  * @Author: zkyne
- * @Date: 2019/6/14 11:18
+ * @Date: 2019/6/14 11:13
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvertUnitIt {
-    private Long id;
-    private Long unitId;
-    private String itTag;
+public class AdvertUnitDistrictTable {
 
-    private Date createTime;
-    private Date modifyTime;
+    private Long unitId;
+    private String province;
+    private String city;
+
 }

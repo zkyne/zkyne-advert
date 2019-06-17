@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 /**
- * @ClassName: AdvertUnitKeyword
+ * @ClassName: AdvertUnitKeywordTable
  * @Description:
  * @Author: zkyne
  * @Date: 2019/6/14 11:19
@@ -15,12 +13,9 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvertUnitKeyword {
-    private Long id;
+public class AdvertUnitKeywordTable {
+
     private Long unitId;
     private String keyword;
-
-    private Date createTime;
-    private Date modifyTime;
 
 }

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 /**
- * @ClassName: AdvertPlan
+ * @ClassName: AdvertPlanTable
  * @Description:
  * @Author: zkyne
  * @Date: 2019/6/14 11:09
@@ -15,16 +15,11 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvertPlan {
+public class AdvertPlanTable {
 
     private Long planId;
     private Long userId;
-    private String planName;
     private Integer planStatus;
     private Date startDate;
     private Date endDate;
-
-    private Date createTime;
-    private Date modifyTime;
-
 }

@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
-
 /**
- * @ClassName: AdvertCreative
+ * @ClassName: AdvertCreativeTable
  * @Description:
  * @Author: zkyne
  * @Date: 2019/6/14 10:58
@@ -15,7 +13,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvertCreative {
+public class AdvertCreativeTable {
 
     private Long advertId;
     private String name;
@@ -24,9 +22,5 @@ public class AdvertCreative {
     private Integer height;
     private Integer width;
     private Integer auditStatus;
-    private Long userId;
     private String advertUrl;
-
-    private Date createTime;
-    private Date modifyTime;
 }
