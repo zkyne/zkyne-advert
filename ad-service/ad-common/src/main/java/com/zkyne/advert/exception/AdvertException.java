@@ -19,4 +19,9 @@ public class AdvertException extends Exception {
         super(message);
         this.code = code;
     }
+
+    public AdvertException(String message) {
+        super(message);
+        this.code = 500;
+    }
 }
