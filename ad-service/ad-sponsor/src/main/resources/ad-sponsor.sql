@@ -1,11 +1,11 @@
 -- imooc-ad 数据库
-drop DATABASE zkyne_advert_data;
-CREATE DATABASE zkyne_advert_data character set utf8;
+drop DATABASE zkyne_advert;
+CREATE DATABASE zkyne_advert character set utf8;
 
-use zkyne_advert_data;
+use zkyne_advert;
 
 -- 用户表
-CREATE TABLE `advert_user`
+CREATE TABLE `ad_user`
 (
     `user_id`          bigint(20)   NOT NULL AUTO_INCREMENT COMMENT '自增主键',
     `username`    varchar(128) NOT NULL DEFAULT '' COMMENT '用户名',
@@ -15,11 +15,12 @@ CREATE TABLE `advert_user`
     `modify_time` datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
     PRIMARY KEY (`user_id`),
     UNIQUE KEY `username` (`username`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8 COMMENT ='用户信息表';
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='用户信息表';
 
 
 -- 推广计划表
-CREATE TABLE `advert_plan`
+CREATE TABLE `ad_plan`
 (
     `plan_id`          bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '自增主键',
     `user_id`     bigint(20)  NOT NULL DEFAULT '0' COMMENT '标记当前记录所属用户',
@@ -30,13 +31,14 @@ CREATE TABLE `advert_plan`
     `create_time` datetime    NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time` datetime    NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
     PRIMARY KEY (`plan_id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8 COMMENT ='推广计划表';
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='推广计划表';
 
 
 -- 推广单元表
-CREATE TABLE `advert_unit`
+CREATE TABLE `ad_unit`
 (
-    `unid_id`            bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+    `unit_id`            bigint(20)  NOT NULL AUTO_INCREMENT COMMENT '自增主键',
     `plan_id`       bigint(20)  NOT NULL DEFAULT '0' COMMENT '关联推广计划 id',
     `unit_name`     varchar(48) NOT NULL COMMENT '推广单元名称',
     `unit_status`   tinyint(4)  NOT NULL DEFAULT '0' COMMENT '推广单元状态',
@@ -44,14 +46,15 @@ CREATE TABLE `advert_unit`
     `budget`        bigint(20)  NOT NULL COMMENT '预算',
     `create_time`   datetime    NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time`   datetime    NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
-    PRIMARY KEY (`unid_id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8 COMMENT ='推广单元表';
+    PRIMARY KEY (`unit_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='推广单元表';
 
 
 -- 创意表
-CREATE TABLE `advert_creative`
+CREATE TABLE `ad_creative`
 (
-    `advert_id`     bigint(20)   NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+    `creative_id`            bigint(20)   NOT NULL AUTO_INCREMENT COMMENT '自增主键',
     `name`          varchar(48)  NOT NULL COMMENT '创意名称',
     `type`          tinyint(4)   NOT NULL DEFAULT '0' COMMENT '物料类型(图片, 视频)',
     `material_type` tinyint(4)   NOT NULL DEFAULT '0' COMMENT '物料子类型(图片: bmp, jpg 等等)',
@@ -61,27 +64,29 @@ CREATE TABLE `advert_creative`
     `duration`      int(10)      NOT NULL DEFAULT '0' COMMENT '持续时长, 只有视频才不为 0',
     `audit_status`  tinyint(4)   NOT NULL DEFAULT '0' COMMENT '审核状态',
     `user_id`       bigint(20)   NOT NULL DEFAULT '0' COMMENT '标记当前记录所属用户',
-    `advert_url`    varchar(256) NOT NULL COMMENT '物料地址',
+    `url`           varchar(256) NOT NULL COMMENT '物料地址',
     `create_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
-    PRIMARY KEY (`advert_id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8 COMMENT ='创意表';
+    PRIMARY KEY (`creative_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='创意表';
 
 
 -- 创意与推广单元的关联表
-CREATE TABLE `advert_creative_unit`
+CREATE TABLE `ad_creative_unit`
 (
     `id`          bigint(20) NOT NULL AUTO_INCREMENT,
-    `advert_id`   bigint(20) NOT NULL DEFAULT '0' COMMENT '创意 id',
+    `creative_id` bigint(20) NOT NULL DEFAULT '0' COMMENT '创意 id',
     `unit_id`     bigint(20) NOT NULL DEFAULT '0' COMMENT '推广单元 id',
     `create_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
     PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8 COMMENT ='创意和推广单元关联表';
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='创意和推广单元关联表';
 
 
 -- 推广单元关键词 Feature
-CREATE TABLE `advert_unit_keyword`
+CREATE TABLE `ad_unit_keyword`
 (
     `id`      int(11)     NOT NULL AUTO_INCREMENT,
     `unit_id` int(11)     NOT NULL COMMENT '推广单元 id',
@@ -89,11 +94,12 @@ CREATE TABLE `advert_unit_keyword`
     `create_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
     PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8 COMMENT ='推广单元关键词 Feature';
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='推广单元关键词 Feature';
 
 
 -- 推广单元兴趣 Feature
-CREATE TABLE `advert_unit_it`
+CREATE TABLE `ad_unit_interest`
 (
     `id`      int(11)     NOT NULL AUTO_INCREMENT,
     `unit_id` int(11)     NOT NULL COMMENT '推广单元 id',
@@ -101,11 +107,12 @@ CREATE TABLE `advert_unit_it`
     `create_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
     PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8 COMMENT ='推广单元兴趣 Feature';
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='推广单元兴趣 Feature';
 
 
 -- 推广单元地域 Feature
-CREATE TABLE `advert_unit_district`
+CREATE TABLE `ad_unit_district`
 (
     `id`       int(11)     NOT NULL AUTO_INCREMENT,
     `unit_id`  int(11)     NOT NULL COMMENT '推广单元 id',
@@ -114,4 +121,5 @@ CREATE TABLE `advert_unit_district`
     `create_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time`   datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
     PRIMARY KEY (`id`)
-) ENGINE = InnoDB DEFAULT CHARSET = utf8 COMMENT ='推广单元地域 Feature';
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='推广单元地域 Feature';

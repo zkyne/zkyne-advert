@@ -1,5 +1,6 @@
 package com.zkyne.advert.entity;
 
+import com.zkyne.advert.constant.CommonStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * @ClassName: AdvertUnit
+ * @ClassName: AdUnit
  * @Description:
  * @Author: zkyne
  * @Date: 2019/6/14 11:21
@@ -17,8 +18,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "advert_unit")
-public class AdvertUnit {
+@Table(name = "ad_unit")
+public class AdUnit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,10 +54,10 @@ public class AdvertUnit {
     @Column(name = "modify_time", nullable = false)
     private Date modifyTime;
 
-    public AdvertUnit(Long planId, String unitName, Integer positionType, Long budget) {
+    public AdUnit(Long planId, String unitName, Integer positionType, Long budget) {
         this.planId = planId;
         this.unitName = unitName;
-//        this.unitStatus = CommonStatus.VALID.getStatus();
+        this.unitStatus = CommonStatus.VALID.getStatus();
         this.positionType = positionType;
         this.budget = budget;
         this.createTime = new Date();

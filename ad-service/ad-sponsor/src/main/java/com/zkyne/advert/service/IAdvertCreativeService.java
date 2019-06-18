@@ -1,6 +1,6 @@
 package com.zkyne.advert.service;
 
-import com.zkyne.advert.entity.AdvertCreative;
+import com.zkyne.advert.entity.AdCreative;
 import com.zkyne.advert.exception.AdvertException;
 
 /**
@@ -11,6 +11,6 @@ import com.zkyne.advert.exception.AdvertException;
  */
 public interface IAdvertCreativeService {
 
-    AdvertCreative createCreative() throws AdvertException;
+    AdCreative createCreative() throws AdvertException;
 
 }

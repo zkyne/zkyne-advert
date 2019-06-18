@@ -1,6 +1,6 @@
 package com.zkyne.advert.service;
 
-import com.zkyne.advert.entity.AdvertUser;
+import com.zkyne.advert.entity.AdUser;
 import com.zkyne.advert.exception.AdvertException;
 
 /**
@@ -17,5 +17,5 @@ public interface IAdvertUserService {
      * @return
      * @throws AdvertException
      */
-    AdvertUser createUser(String username) throws AdvertException;
+    AdUser createUser(String username) throws AdvertException;
 }

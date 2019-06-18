@@ -8,8 +8,8 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * @ClassName: AdvertCreative
- * @Description:
+ * @ClassName: AdCreative
+ * @Description:  广告创意
  * @Author: zkyne
  * @Date: 2019/6/14 10:58
  */
@@ -17,13 +17,13 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "advert_creative")
-public class AdvertCreative {
+@Table(name = "ad_creative")
+public class AdCreative {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "advert_id", nullable = false)
-    private Long advertId;
+    @Column(name = "creative_id", nullable = false)
+    private Long creativeId;
 
     @Basic
     @Column(name = "name", nullable = false)
@@ -62,8 +62,8 @@ public class AdvertCreative {
     private Long userId;
 
     @Basic
-    @Column(name = "advert_url", nullable = false)
-    private String advertUrl;
+    @Column(name = "url", nullable = false)
+    private String url;
 
     @Basic
     @Column(name = "create_time", nullable = false)

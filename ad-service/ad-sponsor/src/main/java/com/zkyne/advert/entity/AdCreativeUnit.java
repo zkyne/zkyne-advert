@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * @ClassName: AdvertCreativeUnit
+ * @ClassName: AdCreativeUnit
  * @Description:
  * @Author: zkyne
  * @Date: 2019/6/14 11:03
@@ -17,8 +17,8 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "advert_creative_unit")
-public class AdvertCreativeUnit {
+@Table(name = "ad_creative_unit")
+public class AdCreativeUnit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,7 +41,7 @@ public class AdvertCreativeUnit {
     @Column(name = "modify_time", nullable = false)
     private Date modifyTime;
 
-    public AdvertCreativeUnit(Long advertId, Long unitId) {
+    public AdCreativeUnit(Long advertId, Long unitId) {
         this.advertId = advertId;
         this.unitId = unitId;
         this.createTime = new Date();

@@ -1,6 +1,6 @@
 package com.zkyne.advert.repository;
 
-import com.zkyne.advert.entity.AdvertUnit;
+import com.zkyne.advert.entity.AdUnit;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -11,19 +11,19 @@ import java.util.List;
  * @Author: zkyne
  * @Date: 2019/6/17 17:56
  */
-public interface AdvertUnitRepository extends JpaRepository<AdvertUnit, Long> {
+public interface AdvertUnitRepository extends JpaRepository<AdUnit, Long> {
 
     /**
      * @param planId
      * @param unitName
      * @return
      */
-    AdvertUnit findByPlanIdAndUnitName(Long planId, String unitName);
+    AdUnit findByPlanIdAndUnitName(Long planId, String unitName);
 
     /**
      * @param unitStatus
      * @return
      */
-    List<AdvertUnit> findAllByUnitStatus(Integer unitStatus);
+    List<AdUnit> findAllByUnitStatus(Integer unitStatus);
 
 }
