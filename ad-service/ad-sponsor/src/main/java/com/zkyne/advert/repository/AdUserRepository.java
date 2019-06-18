@@ -2,6 +2,7 @@ package com.zkyne.advert.repository;
 
 import com.zkyne.advert.entity.AdUser;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 /**
  * @ClassName: AdUserRepository
@@ -9,6 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Author: zkyne
  * @Date: 2019/6/17 17:54
  */
+@Repository
 public interface AdUserRepository extends JpaRepository<AdUser, Long> {
 
     /**

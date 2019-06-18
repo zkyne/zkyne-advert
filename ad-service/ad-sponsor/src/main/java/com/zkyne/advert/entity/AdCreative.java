@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * @ClassName: AdCreative
- * @Description:  广告创意
+ * @Description:  推广创意表
  * @Author: zkyne
  * @Date: 2019/6/14 10:58
  */

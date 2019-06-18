@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * @ClassName: AdUnit
- * @Description:
+ * @Description: 推广单元
  * @Author: zkyne
  * @Date: 2019/6/14 11:21
  */

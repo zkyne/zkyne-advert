@@ -1,6 +1,7 @@
 package com.zkyne.advert.entity;
 
 import com.zkyne.advert.constant.CommonStatus;
+import com.zkyne.advert.utils.CommonUtils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +11,7 @@ import java.util.Date;
 
 /**
  * @ClassName: AdUser
- * @Description:
+ * @Description: 推广用户
  * @Author: zkyne
  * @Date: 2019/6/14 13:59
  */
@@ -49,6 +50,14 @@ public class AdUser {
     public AdUser(String username, String token) {
         this.username = username;
         this.token = token;
+        this.userStatus = CommonStatus.VALID.getStatus();
+        this.createTime = new Date();
+        this.modifyTime = this.createTime;
+    }
+
+    public AdUser(String username) {
+        this.username = username;
+        this.token = CommonUtils.md5(username);
         this.userStatus = CommonStatus.VALID.getStatus();
         this.createTime = new Date();
         this.modifyTime = this.createTime;

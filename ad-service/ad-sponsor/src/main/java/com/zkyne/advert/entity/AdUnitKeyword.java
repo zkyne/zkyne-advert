@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * @ClassName: AdUnitKeyword
- * @Description:
+ * @Description: 推广单元的关键词限制
  * @Author: zkyne
  * @Date: 2019/6/14 11:19
  */

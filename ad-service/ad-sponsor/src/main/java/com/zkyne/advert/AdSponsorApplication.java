@@ -8,6 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * ad-sponsor
+ *
  * @author zkyne
  */
 @EnableFeignClients

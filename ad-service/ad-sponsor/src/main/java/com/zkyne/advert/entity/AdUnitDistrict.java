@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  * @ClassName: AdUnitDistrict
- * @Description:
+ * @Description: 推广单元的地域限制
  * @Author: zkyne
  * @Date: 2019/6/14 11:13
  */

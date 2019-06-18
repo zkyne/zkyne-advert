@@ -2,6 +2,7 @@ package com.zkyne.advert.repository;
 
 import com.zkyne.advert.entity.AdPlan;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -11,21 +12,22 @@ import java.util.List;
  * @Author: zkyne
  * @Date: 2019/6/17 17:57
  */
+@Repository
 public interface AdPlanRepository extends JpaRepository<AdPlan, Long> {
 
     /**
-     * @param id
+     * @param planIds
      * @param userId
      * @return
      */
-    AdPlan findByPlanIdAndUserId(Long id, Long userId);
+    AdPlan findByPlanIdAndUserId(Long planIds, Long userId);
 
     /**
-     * @param ids
+     * @param planIds
      * @param userId
      * @return
      */
-    List<AdPlan> findAllByPlanIdInAndUserId(List<Long> ids, Long userId);
+    List<AdPlan> findAllByPlanIdInAndUserId(List<Long> planIds, Long userId);
 
     /**
      * @param userId

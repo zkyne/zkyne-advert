@@ -14,7 +14,7 @@ CREATE TABLE `ad_user`
     `create_time` datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time` datetime     NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
     PRIMARY KEY (`user_id`),
-    UNIQUE KEY `username` (`username`)
+    UNIQUE KEY `unq_uname` (`username`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='用户信息表';
 
@@ -30,7 +30,8 @@ CREATE TABLE `ad_plan`
     `end_date`    datetime    NOT NULL COMMENT '推广计划结束时间；',
     `create_time` datetime    NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time` datetime    NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
-    PRIMARY KEY (`plan_id`)
+    PRIMARY KEY (`plan_id`),
+    UNIQUE KEY `unq_uipn` (`user_id`,`plan_name`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='推广计划表';
 
@@ -46,7 +47,8 @@ CREATE TABLE `ad_unit`
     `budget`        bigint(20)  NOT NULL COMMENT '预算',
     `create_time`   datetime    NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '创建时间',
     `modify_time`   datetime    NOT NULL DEFAULT '1970-01-01 00:00:00' COMMENT '更新时间',
-    PRIMARY KEY (`unit_id`)
+    PRIMARY KEY (`unit_id`),
+    UNIQUE KEY `unq_piun` (`plan_id`,`unit_name`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='推广单元表';
 
