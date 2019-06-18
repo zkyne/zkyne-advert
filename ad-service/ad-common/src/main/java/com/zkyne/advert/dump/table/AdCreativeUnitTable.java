@@ -5,18 +5,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @ClassName: AdvertUnitDistrictTable
+ * @ClassName: AdCreativeUnitTable
  * @Description:
  * @Author: zkyne
- * @Date: 2019/6/14 11:13
+ * @Date: 2019/6/14 11:03
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvertUnitDistrictTable {
-
+public class AdCreativeUnitTable {
+    private Long creativeId;
     private Long unitId;
-    private String province;
-    private String city;
-
 }

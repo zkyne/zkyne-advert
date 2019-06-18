@@ -1,11 +1,11 @@
 package com.zkyne.advert.service;
 
 /**
- * @ClassName: IAdvertPlanService
+ * @ClassName: IAdPlanService
  * @Description:
  * @Author: zkyne
  * @Date: 2019/6/17 18:19
  */
-public interface IAdvertPlanService {
+public interface IAdPlanService {
 
 }

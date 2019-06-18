@@ -6,12 +6,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 /**
- * @ClassName: AdvertPlanRepository
+ * @ClassName: AdPlanRepository
  * @Description:
  * @Author: zkyne
  * @Date: 2019/6/17 17:57
  */
-public interface AdvertPlanRepository extends JpaRepository<AdPlan, Long> {
+public interface AdPlanRepository extends JpaRepository<AdPlan, Long> {
 
     /**
      * @param id

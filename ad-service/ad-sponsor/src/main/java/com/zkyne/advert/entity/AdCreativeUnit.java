@@ -26,8 +26,8 @@ public class AdCreativeUnit {
     private Long id;
 
     @Basic
-    @Column(name = "advert_id", nullable = false)
-    private Long advertId;
+    @Column(name = "creative_id", nullable = false)
+    private Long creativeId;
 
     @Basic
     @Column(name = "unit_id", nullable = false)
@@ -41,8 +41,8 @@ public class AdCreativeUnit {
     @Column(name = "modify_time", nullable = false)
     private Date modifyTime;
 
-    public AdCreativeUnit(Long advertId, Long unitId) {
-        this.advertId = advertId;
+    public AdCreativeUnit(Long creativeId, Long unitId) {
+        this.creativeId = creativeId;
         this.unitId = unitId;
         this.createTime = new Date();
         this.modifyTime = this.createTime;

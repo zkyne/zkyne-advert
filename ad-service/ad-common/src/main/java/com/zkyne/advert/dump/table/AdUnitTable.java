@@ -5,15 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @ClassName: AdvertCreativeUnitTable
+ * @ClassName: AdUnitTable
  * @Description:
  * @Author: zkyne
- * @Date: 2019/6/14 11:03
+ * @Date: 2019/6/14 11:21
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdvertCreativeUnitTable {
-    private Long advertId;
+public class AdUnitTable {
+
     private Long unitId;
+    private Integer unitStatus;
+    private Integer positionType;
+    private Long planId;
+
 }

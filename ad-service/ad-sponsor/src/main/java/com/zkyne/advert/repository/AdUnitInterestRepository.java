@@ -4,11 +4,11 @@ import com.zkyne.advert.entity.AdUnitInterest;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * @ClassName: AdvertUnitItRepository
+ * @ClassName: AdUnitInterestRepository
  * @Description:
  * @Author: zkyne
  * @Date: 2019/6/17 18:02
  */
-public interface AdvertUnitItRepository extends JpaRepository<AdUnitInterest, Long> {
+public interface AdUnitInterestRepository extends JpaRepository<AdUnitInterest, Long> {
 
 }
