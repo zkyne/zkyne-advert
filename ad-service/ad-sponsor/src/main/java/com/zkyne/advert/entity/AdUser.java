@@ -1,5 +1,6 @@
 package com.zkyne.advert.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import com.zkyne.advert.constant.CommonStatus;
 import com.zkyne.advert.utils.CommonUtils;
 import lombok.AllArgsConstructor;
@@ -25,26 +26,32 @@ public class AdUser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id", nullable = false)
+    @JSONField(name = "user_id")
     private Long userId;
 
     @Basic
     @Column(name = "username", nullable = false)
+    @JSONField(name = "username")
     private String username;
 
     @Basic
     @Column(name = "token", nullable = false)
+    @JSONField(serialize = false)
     private String token;
 
     @Basic
     @Column(name = "user_status", nullable = false)
+    @JSONField(serialize = false)
     private Integer userStatus;
 
     @Basic
     @Column(name = "create_time", nullable = false)
+    @JSONField(name = "create_time")
     private Date createTime;
 
     @Basic
     @Column(name = "modify_time", nullable = false)
+    @JSONField(name = "modify_time")
     private Date modifyTime;
 
     public AdUser(String username, String token) {

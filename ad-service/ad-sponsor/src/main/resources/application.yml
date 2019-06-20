@@ -1,7 +1,7 @@
 server:
   port: 8100
   servlet:
-    context-path: /ad-sponsor
+    context-path: /ad-sponsor/v1
 
 spring:
   application:
@@ -14,9 +14,11 @@ spring:
       hibernate.format_sql: true
     open-in-view: false
   datasource:
-    url: jdbc:mysql://192.168.19.128:3306/zkyne_advert?characterEncoding=utf8&useSSL=false&autoReconnect=true
+#    url: jdbc:mysql://192.168.19.128:3306/zkyne_advert?characterEncoding=utf8&useSSL=false&autoReconnect=true
+    url: jdbc:mysql://192.168.200.129:3306/zkyne_advert?characterEncoding=utf8&useSSL=false&autoReconnect=true
     username: root
-    password: Zkyne_3618
+#    password: Zkyne_3618
+    password: root
     tomcat:
       max-active: 4
       min-idle: 2

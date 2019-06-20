@@ -5,7 +5,7 @@ import com.zkyne.advert.entity.AdUser;
 import com.zkyne.advert.exception.AdvertException;
 import com.zkyne.advert.repository.AdUserRepository;
 import com.zkyne.advert.service.IAdUserService;
-import org.apache.commons.lang.StringUtils;
+import com.zkyne.advert.vo.AdUserRequest;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -22,15 +22,15 @@ public class AdUserServiceImpl implements IAdUserService {
     private AdUserRepository adUserRepository;
 
     @Override
-    public AdUser createUser(String username) throws AdvertException {
-        if (StringUtils.isBlank(username)) {
+    public AdUser createUser(AdUserRequest request) throws AdvertException {
+        if (!request.validate()) {
             throw new AdvertException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }
 
-        AdUser existUser = adUserRepository.findByUsername(username);
+        AdUser existUser = adUserRepository.findByUsername(request.getUsername());
         if (existUser != null) {
             throw new AdvertException(Constants.ErrorMsg.SAME_NAME_ERROR);
         }
-        return adUserRepository.save(new AdUser(username));
+        return adUserRepository.save(new AdUser(request.getUsername()));
     }
 }

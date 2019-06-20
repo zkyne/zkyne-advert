@@ -2,6 +2,7 @@ package com.zkyne.advert.service;
 
 import com.zkyne.advert.entity.AdUser;
 import com.zkyne.advert.exception.AdvertException;
+import com.zkyne.advert.vo.AdUserRequest;
 
 /**
  * @ClassName: IAdUserService
@@ -13,9 +14,9 @@ public interface IAdUserService {
 
     /**
      * <h2>创建用户</h2>
-     * @param username
+     * @param request
      * @return
      * @throws AdvertException
      */
-    AdUser createUser(String username) throws AdvertException;
+    AdUser createUser(AdUserRequest request) throws AdvertException;
 }

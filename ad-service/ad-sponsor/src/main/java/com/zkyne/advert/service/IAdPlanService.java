@@ -29,7 +29,7 @@ public interface IAdPlanService {
      * @return
      * @throws AdvertException
      */
-    AdPlan updateAdPlan(AdPlanRequest request) throws AdvertException;
+    AdPlan modifyAdPlan(AdPlanRequest request) throws AdvertException;
 
     /**
      * <h2>删除推广计划</h2>

@@ -48,7 +48,7 @@ public class AdPlanServiceImpl implements IAdPlanService {
     }
 
     @Override
-    public AdPlan updateAdPlan(AdPlanRequest request) throws AdvertException {
+    public AdPlan modifyAdPlan(AdPlanRequest request) throws AdvertException {
         if (!request.updateValidate()) {
             throw new AdvertException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }

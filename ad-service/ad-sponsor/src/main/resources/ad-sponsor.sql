@@ -1,5 +1,5 @@
 -- imooc-ad 数据库
-drop DATABASE zkyne_advert;
+drop DATABASE  if exists zkyne_advert;
 CREATE DATABASE zkyne_advert character set utf8;
 
 use zkyne_advert;
