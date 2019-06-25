@@ -1,6 +1,8 @@
 package com.zkyne.advert.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.google.common.collect.Lists;
+import com.zkyne.advert.constant.Constants;
 import com.zkyne.advert.entity.AdPlan;
 import com.zkyne.advert.exception.AdvertException;
 import com.zkyne.advert.service.IAdPlanService;
@@ -31,8 +33,20 @@ public class AdPlanController {
         return adPlanService.createAdPlan(request);
     }
 
-    @GetMapping("")
-    public List<AdPlan> getAdPlanByIds(@RequestBody AdPlanRequest request) throws AdvertException {
+    @GetMapping("/{userId}")
+    public List<AdPlan> getAdPlanByIds(@PathVariable("userId") Long userId,@RequestParam("planIds") String planIds) throws AdvertException {
+        AdPlanRequest request = new AdPlanRequest();
+        request.setUserId(userId);
+        String[] split = planIds.split(",");
+        List<Long> ids = Lists.newArrayList();
+        try{
+            for (String id : split) {
+                ids.add(Long.valueOf(id));
+            }
+        }catch (Exception e){
+            throw new AdvertException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
+        }
+        request.setPlanIds(ids);
         log.info("ad-sponsor: getAdPlanByIds -> {}", JSON.toJSONString(request));
         return adPlanService.getAdPlanByIds(request);
     }

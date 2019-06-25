@@ -1,7 +1,6 @@
 package com.zkyne.advert.client;
 
 import com.zkyne.advert.client.vo.AdPlan;
-import com.zkyne.advert.client.vo.AdPlanRequest;
 import com.zkyne.advert.vo.CommonResponse;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +16,7 @@ import java.util.List;
 public class SponsorClientHystrix implements SponsorClient {
 
     @Override
-    public CommonResponse<List<AdPlan>> getAdPlanByIds(AdPlanRequest request) {
+    public CommonResponse<List<AdPlan>> getAdPlanByIds(Long userId, String planIds) {
         return new CommonResponse<>(-1, "ad-sponsor error");
     }
 }
