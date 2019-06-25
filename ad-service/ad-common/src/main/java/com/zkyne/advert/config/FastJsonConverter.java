@@ -24,11 +24,7 @@ public class FastJsonConverter {
             FastJsonConfig fastJsonConfig = fastJsonHttpMessageConverter.getFastJsonConfig();
             List<MediaType> fastMediaTypes = Lists.newArrayList();
             fastMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
-            fastJsonConfig.setSerializerFeatures(
-                    SerializerFeature.DisableCircularReferenceDetect,
-                    SerializerFeature.WriteMapNullValue,
-                    SerializerFeature.WriteNullStringAsEmpty
-            );
+            fastJsonConfig.setSerializerFeatures(SerializerFeature.DisableCircularReferenceDetect, SerializerFeature.WriteMapNullValue, SerializerFeature.WriteNullStringAsEmpty);
             fastJsonHttpMessageConverter.setSupportedMediaTypes(fastMediaTypes);
             fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
         }
