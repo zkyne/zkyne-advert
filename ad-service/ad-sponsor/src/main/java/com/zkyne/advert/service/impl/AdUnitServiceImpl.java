@@ -1,5 +1,7 @@
 package com.zkyne.advert.service.impl;
 
+import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.zkyne.advert.constant.Constants;
 import com.zkyne.advert.entity.*;
 import com.zkyne.advert.exception.AdvertException;
@@ -10,8 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -74,7 +74,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
             throw new AdvertException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }
 
-        List<AdCreativeUnit> adCreativeUnits = new ArrayList<>();
+        List<AdCreativeUnit> adCreativeUnits = Lists.newArrayList();
         request.getCreativeUnits().forEach(creativeUnit -> adCreativeUnits.add(new AdCreativeUnit(creativeUnit.getCreativeId(), creativeUnit.getUnitId())));
         return adCreativeUnitRepository.saveAll(adCreativeUnits);
     }
@@ -88,7 +88,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
             throw new AdvertException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }
 
-        List<AdUnitDistrict> adUnitDistricts = new ArrayList<>();
+        List<AdUnitDistrict> adUnitDistricts = Lists.newArrayList();
         request.getUnitDistricts().forEach(unitDistrict -> adUnitDistricts.add(new AdUnitDistrict(unitDistrict.getUnitId(), unitDistrict.getProvince(), unitDistrict.getCity())));
         return adUnitDistrictRepository.saveAll(adUnitDistricts);
     }
@@ -102,7 +102,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
             throw new AdvertException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }
 
-        List<AdUnitInterest> adUnitInterests = new ArrayList<>();
+        List<AdUnitInterest> adUnitInterests = Lists.newArrayList();
         request.getUnitInterests().forEach(unitInterest -> adUnitInterests.add(new AdUnitInterest(unitInterest.getUnitId(), unitInterest.getItTag())));
         return adUnitInterestRepository.saveAll(adUnitInterests);
     }
@@ -116,7 +116,7 @@ public class AdUnitServiceImpl implements IAdUnitService {
             throw new AdvertException(Constants.ErrorMsg.REQUEST_PARAM_ERROR);
         }
 
-        List<AdUnitKeyword> adUnitKeywords = new ArrayList<>();
+        List<AdUnitKeyword> adUnitKeywords = Lists.newArrayList();
         request.getUnitKeywords().forEach(unitKeyword -> adUnitKeywords.add(new AdUnitKeyword(unitKeyword.getUnitId(), unitKeyword.getKeyword())));
 
         return adUnitKeywordRepository.saveAll(adUnitKeywords);
@@ -126,14 +126,14 @@ public class AdUnitServiceImpl implements IAdUnitService {
         if (CollectionUtils.isEmpty(unitIds)) {
             return false;
         }
-        return adUnitRepository.findAllById(unitIds).size() == new HashSet<>(unitIds).size();
+        return adUnitRepository.findAllById(unitIds).size() == Sets.newHashSet(unitIds).size();
     }
 
     private boolean isRelatedCreativeExist(List<Long> creativeIds) {
 
         if (CollectionUtils.isEmpty(creativeIds)) {
-            return false;
+          return false;
         }
-        return adCreativeRepository.findAllById(creativeIds).size() == new HashSet<>(creativeIds).size();
+        return adCreativeRepository.findAllById(creativeIds).size() == Sets.newHashSet(creativeIds).size();
     }
 }
